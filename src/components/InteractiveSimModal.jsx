@@ -196,37 +196,69 @@ export default function InteractiveSimModal({ isOpen, onClose }) {
             </div>
           )}
 
-          {/* Tab 2: Queue-Aware Routing */}
+          {/* Tab 2: AI Crowd Management & Overhead Wayfinding */}
           {activeTab === 'routing' && (
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div>
                 <h4 className="text-sm font-bold text-slate-900">
-                  Dynamic Security Checkpoint Balancing
+                  AI Crowd Management & Wayfinding System (Module 05)
                 </h4>
                 <p className="text-xs text-slate-500">
-                  Kiosk evaluates terminal checkpoint congestion to guide passenger to the fastest gate
+                  CCTV computer vision tracks queue depths to guide passengers via overhead displays and alerts the Admin Portal upon zone threshold breaches.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 bg-[#f7f8fa] rounded-2xl border border-slate-200">
-                  <div className="text-xs font-semibold text-slate-500 mb-1">Security Gate A (Main Hall)</div>
-                  <div className="text-2xl font-bold text-slate-800">18 min <span className="text-xs font-normal text-slate-500">wait</span></div>
-                  <p className="text-xs text-slate-500 mt-2">Queue depth: 42 passengers</p>
+              {/* 1. Overhead Display at Check-in Counters */}
+              <div className="p-5 bg-white rounded-2xl border border-slate-200 shadow-2xs space-y-3">
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-700">
+                  <span>1. Self-Check-in Overhead Display Output</span>
+                  <span className="text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-600 font-mono">CCTV HEADCOUNT FEED</span>
                 </div>
 
-                <div className="p-5 bg-white rounded-2xl border-2 border-slate-900 shadow-2xs">
-                  <div className="flex items-center justify-between text-xs font-semibold text-slate-900 mb-1">
-                    <span>Security Gate B04 (North Concourse)</span>
-                    <span className="text-[10px] px-2 py-0.5 bg-slate-100 rounded-full font-bold">OPTIMAL</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+                    <div className="font-bold text-slate-800">Counters 01 — 04 (Main Line)</div>
+                    <div className="text-rose-600 font-bold mt-1">16 Passengers in Queue (Long Delay)</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5">Wait time: ~12 mins</div>
                   </div>
-                  <div className="text-2xl font-bold text-[#00aaff]">3 min <span className="text-xs font-normal text-slate-500">wait</span></div>
-                  <p className="text-xs text-slate-600 mt-2">Queue depth: 8 passengers</p>
+                  <div className="p-3.5 bg-emerald-50/70 rounded-xl border border-emerald-200">
+                    <div className="font-bold text-emerald-950">Counters 05 — 08 (Adjacent Line)</div>
+                    <div className="text-emerald-700 font-bold mt-1">2 Passengers in Queue (Optimal)</div>
+                    <div className="text-[11px] text-slate-500 mt-0.5">Wait time: ~1 min</div>
+                  </div>
+                </div>
+
+                {/* The Overhead Sign Simulation */}
+                <div className="p-3.5 bg-slate-900 text-white rounded-xl flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    <span>OVERHEAD SIGN: "Counters 01-04 Busy ➔ Please Proceed to Counters 05-08"</span>
+                  </div>
+                  <span className="text-[#00aaff] font-bold">BALANCED</span>
                 </div>
               </div>
 
-              <div className="p-4 bg-[#f7f8fa] rounded-xl border border-slate-200 text-xs text-slate-700">
-                <strong>Boarding Pass Guidance:</strong> "Recommended: Proceed directly via Security Checkpoint B04. Estimated saving: 15 minutes."
+              {/* 2. Admin Portal Area Threshold Alert */}
+              <div className="p-5 bg-[#f7f8fa] rounded-2xl border border-slate-200 space-y-3">
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-700">
+                  <span>2. Admin Portal Area Threshold Alarms</span>
+                  <span className="text-[10px] bg-rose-100 text-rose-800 px-2 py-0.5 rounded font-bold">THRESHOLD BREACH</span>
+                </div>
+
+                <div className="p-4 bg-white rounded-xl border border-rose-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                  <div>
+                    <div className="font-bold text-rose-900 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-rose-600" />
+                      ALERT: Check-in Zone B Exceeded Safe Capacity
+                    </div>
+                    <div className="text-slate-600 mt-1">
+                      Detected: <strong className="text-rose-600 font-mono">42 People</strong> | Threshold Limit: <span className="font-mono">30 People</span>
+                    </div>
+                  </div>
+                  <span className="px-3 py-1.5 bg-rose-600 text-white rounded-lg font-semibold text-[11px] text-center shrink-0">
+                    Staff Dispatch Dispatched
+                  </span>
+                </div>
               </div>
             </div>
           )}

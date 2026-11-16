@@ -122,16 +122,17 @@ export const coreModules = [
     name: "AI & Terminal Surveillance",
     subtitle: "Crowd Density Estimation & Watchlist Matching",
     targetUser: "Airport Security & Terminal Operations",
-    description: "Processes CCTV camera feeds to estimate queue lengths and detect flagged individuals against security watchlists, ensuring crowd flow balance and immediate gate intervention when necessary.",
+    description: "Processes CCTV feeds via YOLOv8 to track crowd density and identify flagged individuals. Drives overhead counter wayfinding displays and triggers instant admin congestion alerts when zone thresholds are breached.",
     image: "https://images.unsplash.com/photo-1473862170180-84427c485aca?auto=format&fit=crop&w=1000&q=80",
     features: [
-      "Queue crowd counting to guide passengers toward the fastest security lane",
-      "Facial matching against authorized watchlists with instant ops desk alerts",
-      "Direct integration with Operations Desk for one-click gate lock",
-      "Optimized edge processing to protect passenger privacy"
+      "Dynamic Overhead Counter Display updates directing travelers away from long queues",
+      "Admin Portal Area Density Alerts when passenger headcount breaches zone thresholds",
+      "Queue crowd counting to route passengers toward the fastest security lane",
+      "Facial matching against authorized watchlists with 1-click ops desk freeze",
+      "Polygon geofencing & privacy-preserving edge vision processing"
     ],
-    techStack: ["Python", "YOLOv8", "OpenCV", "RTSP Camera Streams"],
-    metric: "Real-time queue balancing & sub-second detection"
+    techStack: ["Python", "YOLOv8", "OpenCV", "DeepSORT", "WebSockets"],
+    metric: "Sub-second queue balancing & automated admin alerts"
   }
 ];
 
@@ -144,10 +145,10 @@ export const smartInnovations = [
     image: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=600&q=80"
   },
   {
-    category: "Queue Management",
-    title: "Dynamic Queue-Aware Gate Routing",
+    category: "AI Crowd Management",
+    title: "Overhead Queue Displays & Admin Alerts",
     subtitle: "Module 02 & Module 05",
-    description: "Terminal cameras continuously calculate checkpoint waiting times. When a boarding pass is printed, the system prints directions directing the traveler to the currently fastest security gate.",
+    description: "CCTV feeds monitor check-in lines and terminal zones. Long counter queues dynamically trigger overhead screen directions guiding passengers to empty counters, while zone capacity breaches fire instant alerts to the Admin Portal.",
     image: "https://images.unsplash.com/photo-1473862170180-84427c485aca?auto=format&fit=crop&w=600&q=80"
   },
   {
